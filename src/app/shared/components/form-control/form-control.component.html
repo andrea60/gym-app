@@ -1,0 +1,13 @@
+<div class="form-group {{class}}" [class.with-icon]="!!icon" [class.invalid]="error$ | async" [class.disabled]="disabled$ | async">
+
+    <label>{{label}} 
+        <fa-icon class="float-right" icon="exclamation-triangle" [hidden]="!(error$ | async)"></fa-icon>
+    </label>
+
+    <div class="control">
+        <ng-content #ctrl></ng-content>
+        <span class="icon" *ngIf="icon">
+            <fa-icon [icon]="icon"></fa-icon>
+        </span>
+    </div>
+</div>

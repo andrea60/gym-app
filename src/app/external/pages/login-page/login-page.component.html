@@ -1,0 +1,22 @@
+<app-card>
+
+    <form [formGroup]="form" (submit)="login()">
+        <app-form-control label="Please enter username" icon="envelope" class="mb-3">
+            <input type="email" placeholder="Your email" formControlName="username">
+        </app-form-control>
+        <app-form-control label="Please enter password" icon="key" class="mb-3">
+            <input type="password" placeholder="Secret" formControlName="password">
+        </app-form-control>    
+
+        <div class="mt-2">
+            <button class="w-full primary" [disabled]="form.invalid || (loading$ | async)">
+                Login
+            </button>
+        </div>
+        <p class="mt-2 text-center text-danger" *ngIf="(fail$ | async) && !(loading$ | async)">
+           <fa-icon icon="exclamation-triangle"></fa-icon> Email\password are invalid
+        </p>
+    </form>
+
+</app-card>
+

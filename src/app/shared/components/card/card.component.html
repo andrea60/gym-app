@@ -1,0 +1,9 @@
+<div class="w-full bg-gradient-to-tr from-base-400 to-base-300 rounded-xl shadow-md {{class}}"
+    [ngClass]="{ 'border-1 border-primary': highlight }">
+    <div *ngIf="hasHeader$ | async" class="py-3">
+        <ng-content select="[cardHeader]"></ng-content>
+    </div>
+    <div class="p-3">
+        <ng-content></ng-content>
+    </div>
+</div>

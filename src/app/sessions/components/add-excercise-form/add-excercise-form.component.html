@@ -1,0 +1,9 @@
+<form [formGroup]="searchForm">
+    <app-form-control icon="search">
+        <input type="text" formControlName="name" placeholder="Search..." >
+    </app-form-control>
+</form>
+
+<!-- DISPLAY LIST OF EXCERCISES -->
+<h5>Upper Body</h5>
+<div *ngFor="let exc of getExcercises$('upper') | async"></div>
