@@ -1,0 +1,9 @@
+.modal-pos-center {
+    @apply justify-center;
+    #modal-content {
+        @apply rounded-b-xl;
+    }
+}
+.modal-pos-bottom {
+    @apply justify-end;
+}

@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CoreModule,
     RouterModule.forRoot([]),
     FontAwesomeModule,

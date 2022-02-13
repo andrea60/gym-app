@@ -9,8 +9,6 @@ import { FormControlComponent } from './components/form-control/form-control.com
 import { ModalRendererComponent } from './ui/modal/modal-renderer/modal-renderer.component';
 import { ModalContentDirective } from './ui/modal/modal-content.directive';
 
-
-
 @NgModule({
   declarations: [
     CardComponent,

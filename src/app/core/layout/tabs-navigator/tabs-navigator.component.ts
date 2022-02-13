@@ -14,6 +14,6 @@ export class TabsNavigatorComponent implements OnInit {
   ngOnInit(): void {
   }
   addExercise(){
-    this.modalSrv.openModal('Prova modal', AddExcerciseFormComponent)
+    this.modalSrv.openModal('Prova modal', AddExcerciseFormComponent,{}, { position:'center' })
   }
 }

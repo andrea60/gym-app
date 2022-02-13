@@ -1,12 +1,13 @@
 
 <!-- backdrop -->
-<div *ngIf="open$ | async" class="absolute w-full h-full bg-opacity-40 px-1 bg-base-800 left-0 top-0 flex flex-col justify-end">
+<div *ngIf="(open$ | async) && (args$ | async) as args" @fade (click)="backdropClick()"
+    class="absolute w-full h-full bg-opacity-60 px-1 bg-black left-0 top-0 flex flex-col modal-pos-{{args.position}}">
     <!-- content -->
-    <div class="bg-base-100 px-4 py-2 rounded-t-xl flex flex-col">
+    <div class="bg-base px-4 py-2 rounded-t-xl flex flex-col" id="modal-content" (click)="$event.stopPropagation()">
         <!-- header -->
-        <div class="flex-grow-0 text-center border-b-1 border-base-50 pb-2 mb-2">
+        <div class="flex-grow-0 text-center border-b-0 border-base-300 pb-2 mb-2">
             <fa-icon icon="times" class="float-right" (click)="cancel()"></fa-icon>
-            <h5 class="font-bold">{{(args$ | async)?.title}}</h5>
+            <h5 class="font-bold">{{args.title}}</h5>
         </div>
         <!-- body -->
         <div>

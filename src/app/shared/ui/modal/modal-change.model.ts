@@ -1,10 +1,15 @@
 import { Type } from "@angular/core";
 import { ModalContent } from "./modal-content.interface";
 
-export interface OpenModalArgs<T> {
+export interface ModalConfig {
+    closeOnBackdrop:boolean;
+    position:'bottom' | 'center';
+}
+
+export interface OpenModalArgs<T> extends ModalConfig {
     component:Type<T>,
+    inputs:{},
     title:string;
-    inputs:{}
 }
 export interface CloseModalArgs {
     reason:'cancel' | string;
