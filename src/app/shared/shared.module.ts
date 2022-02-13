@@ -6,6 +6,8 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { FormControlComponent } from './components/form-control/form-control.component';
+import { ModalRendererComponent } from './ui/modal/modal-renderer/modal-renderer.component';
+import { ModalContentDirective } from './ui/modal/modal-content.directive';
 
 
 
@@ -13,7 +15,9 @@ import { FormControlComponent } from './components/form-control/form-control.com
   declarations: [
     CardComponent,
     CardHeaderDirective,
-    FormControlComponent
+    FormControlComponent,
+    ModalRendererComponent,
+    ModalContentDirective
   ],
   imports: [
     FontAwesomeModule,
@@ -22,7 +26,8 @@ import { FormControlComponent } from './components/form-control/form-control.com
   exports:[
     CardComponent,
     FontAwesomeModule,
-    FormControlComponent
+    FormControlComponent,
+    ModalRendererComponent,
   ]
 })
 export class SharedModule { 

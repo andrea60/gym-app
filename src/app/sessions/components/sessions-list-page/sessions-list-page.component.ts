@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { from } from 'rxjs/internal/observable/from';
 import { DbService } from 'src/app/core/data/db/db.service';
+import { SessionService } from 'src/app/core/services/session.service';
 
 @Component({
   selector: 'app-sessions-list-page',
@@ -10,7 +11,7 @@ import { DbService } from 'src/app/core/data/db/db.service';
 })
 export class SessionsListPageComponent implements OnInit {
 
-  constructor(private db:DbService) { 
+  constructor(private sessionService:SessionService) { 
     
   }
 

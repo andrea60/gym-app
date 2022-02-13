@@ -3,7 +3,15 @@
         <input type="text" formControlName="name" placeholder="Search..." >
     </app-form-control>
 </form>
-
+<hr>
 <!-- DISPLAY LIST OF EXCERCISES -->
 <h5>Upper Body</h5>
-<div *ngFor="let exc of getExcercises$('upper') | async"></div>
+<div *ngIf="byBodyPart$('upper') | async as list">
+    <div *ngFor="let item of list">
+        {{item | json}}
+    </div>
+
+    <p *ngIf="list.length == 0" class="text-center text-sm py-3">
+        No excercises found in this category
+    </p>
+</div>

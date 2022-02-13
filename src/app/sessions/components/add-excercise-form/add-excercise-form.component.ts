@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, map, merge, startWith, switchMap } from 'rxjs';
 import { BodyPart } from 'src/app/core/models/excercise.model';
-import { ExcerciseQuery } from 'src/app/core/state/excercise/excercise.query';
+import { ExcercisesService } from 'src/app/core/services/excercises.service';
+import { ModalContent } from 'src/app/shared/ui/modal/modal-content.interface';
 
 @Component({
   selector: 'app-add-excercise-form',
   templateUrl: './add-excercise-form.component.html',
   styleUrls: []
 })
-export class AddExcerciseFormComponent implements OnInit {
+export class AddExcerciseFormComponent implements OnInit, ModalContent {
   searchForm = new FormGroup({
     name: new FormControl(null)
   });
@@ -20,12 +21,12 @@ export class AddExcerciseFormComponent implements OnInit {
     distinctUntilChanged(), // avoid duplicates,
     startWith(null)
   )
-    
-  getExcercises$ = (bodyPart:BodyPart) => 
-    this.searchQuery$.pipe(
-      switchMap(q => this.excQuery.filter(bodyPart, q)))
-      
-  constructor(protected excQuery:ExcerciseQuery) { }
+  byBodyPart$ = (bodyPart:BodyPart) => this.excercisesSrv.selectMany(e => e.bodyPart == bodyPart);
+  constructor(private excercisesSrv:ExcercisesService) { }
+  onModalOpen(): void {
+  }
+  onModalClose(): void {
+  }
 
   ngOnInit(): void {
   }

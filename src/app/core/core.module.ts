@@ -14,7 +14,8 @@ import { AuthGuard } from './data/auth/auth-guard';
   declarations: [
     TabsLayoutComponent,
     EmptyLayoutComponent,
-    TabsNavigatorComponent
+    TabsNavigatorComponent,
+
   ],
   imports: [
     CommonModule,
