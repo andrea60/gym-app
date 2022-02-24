@@ -8,6 +8,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { FormControlComponent } from './components/form-control/form-control.component';
 import { ModalRendererComponent } from './ui/modal/modal-renderer/modal-renderer.component';
 import { ModalContentDirective } from './ui/modal/modal-content.directive';
+import { ExerciseCardComponent } from './components/exercise-card/exercise-card.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ModalContentDirective } from './ui/modal/modal-content.directive';
     CardHeaderDirective,
     FormControlComponent,
     ModalRendererComponent,
-    ModalContentDirective
+    ModalContentDirective,
+    ExerciseCardComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -26,6 +28,7 @@ import { ModalContentDirective } from './ui/modal/modal-content.directive';
     FontAwesomeModule,
     FormControlComponent,
     ModalRendererComponent,
+    ExerciseCardComponent
   ]
 })
 export class SharedModule { 
