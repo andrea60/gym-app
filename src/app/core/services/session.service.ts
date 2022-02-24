@@ -14,7 +14,7 @@ interface SessionState {
 })
 export class SessionService extends TableStore<WorkoutSession, SessionState> {
 
-  activeSession$ = this.select(s => s.custom.currentSessionId).pipe(
+  activeSession$ = this.select(s => s.currentSessionId).pipe(
     switchMap(id => id ? this.selectOne(id) : of(null))
   );
   hasActiveSession$ = this.activeSession$.pipe(map(s => !!s));
@@ -26,7 +26,7 @@ export class SessionService extends TableStore<WorkoutSession, SessionState> {
   }
 
   protected get currentSession(){
-    return this.value.custom.currentSessionId ? this.getEntity(this.value.custom.currentSessionId) : null;
+    return this.value.currentSessionId ? this.getEntity(this.value.currentSessionId) : null;
   }
 
   getSessions$() {
@@ -45,7 +45,7 @@ export class SessionService extends TableStore<WorkoutSession, SessionState> {
       excercises: []
     });
     
-    this.update({ custom: { currentSessionId: uuid }});
+    this.update({  currentSessionId: uuid });
   }
 
   closeCurrentSession(){
@@ -58,7 +58,7 @@ export class SessionService extends TableStore<WorkoutSession, SessionState> {
     });
     // clear current session ID
     this.update(s => {
-      s.custom.currentSessionId = null;
+      s.currentSessionId = null;
     })
   }
   addSet(set:Set, sessionId?:string){
@@ -66,8 +66,8 @@ export class SessionService extends TableStore<WorkoutSession, SessionState> {
     let id:string;
     if (sessionId) 
       id = sessionId;
-    else if (this.value.custom.currentSessionId)
-      id = this.value.custom.currentSessionId;
+    else if (this.value.currentSessionId)
+      id = this.value.currentSessionId;
     else 
       return; // no valid session to perform action
 
@@ -82,8 +82,8 @@ export class SessionService extends TableStore<WorkoutSession, SessionState> {
     let id:string;
     if (sessionId)
       id = sessionId;
-    else if (this.value.custom.currentSessionId)
-      id = this.value.custom.currentSessionId;
+    else if (this.value.currentSessionId)
+      id = this.value.currentSessionId;
     else 
       return; // no valid session to perform action
 

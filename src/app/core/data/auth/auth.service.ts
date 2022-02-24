@@ -3,7 +3,7 @@ import * as Realm from "realm-web"
 import { catchError, defer, from, map, mapTo, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LogService } from '../../log/log.service';
-import { DbService } from '../db/db.service';
+import { RemoteDbService } from '../db/remote-db.service';
 import { AppUser } from './app-user.model';
 
 @Injectable({
@@ -12,7 +12,7 @@ import { AppUser } from './app-user.model';
 export class AuthService {
   
   
-  constructor(private db:DbService, private logger:LogService) { 
+  constructor(private db:RemoteDbService, private logger:LogService) { 
     
   }
 

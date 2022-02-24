@@ -1,0 +1,1 @@
+export declare type BodyArea = 'Abs' | 'Arms' | 'Back' | 'Calves' | 'Chest' | 'Legs' | 'Shoulders';

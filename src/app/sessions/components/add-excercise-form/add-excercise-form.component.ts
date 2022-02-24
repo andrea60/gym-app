@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, map, merge, startWith, switchMap } from 'rxjs';
-import { BodyPart } from 'src/app/core/models/excercise.model';
-import { ExcercisesService } from 'src/app/core/services/excercises.service';
+import { BodyArea } from 'src/app/core/models/body-area.model';
+import { ExercisesService } from 'src/app/core/services/exercises.service';
 import { ModalContent } from 'src/app/shared/ui/modal/modal-content.interface';
 
 @Component({
@@ -11,6 +11,7 @@ import { ModalContent } from 'src/app/shared/ui/modal/modal-content.interface';
   styleUrls: []
 })
 export class AddExcerciseFormComponent implements OnInit, ModalContent {
+
   searchForm = new FormGroup({
     name: new FormControl(null)
   });
@@ -21,9 +22,10 @@ export class AddExcerciseFormComponent implements OnInit, ModalContent {
     distinctUntilChanged(), // avoid duplicates,
     startWith(null)
   )
-  byBodyPart$ = (bodyPart:BodyPart) => this.excercisesSrv.selectMany(e => e.bodyPart == bodyPart);
-  constructor(private excercisesSrv:ExcercisesService) { }
+  byBodyPart$ = (bodyPart:BodyArea) => this.excercisesSrv.selectMany(e => e.bodyArea == bodyPart);
+  constructor(private excercisesSrv:ExercisesService) { }
   onModalOpen(): void {
+    this.excercisesSrv.load();
   }
   onModalClose(): void {
   }

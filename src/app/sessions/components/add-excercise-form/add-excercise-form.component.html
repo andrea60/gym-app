@@ -6,7 +6,7 @@
 <hr>
 <!-- DISPLAY LIST OF EXCERCISES -->
 <h5>Upper Body</h5>
-<div *ngIf="byBodyPart$('upper') | async as list">
+<div *ngIf="byBodyPart$('Arms') | async as list">
     <div *ngFor="let item of list">
         {{item | json}}
     </div>
